@@ -237,6 +237,12 @@
           white-space: pre;
         }
 
+        .link-col::after {
+          content: "↗";
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-style: normal;
+        }
+
         /* Tablet specific adjustments */
         @media (min-width: 769px) and (max-width: 1024px) {
           
@@ -302,6 +308,15 @@
           .footer-section {
             padding: 15px;
           }
+
+          .contact-button:hover {
+            background-color: var(--primary-color); /* Reset to original color */
+          }
+
+          .theme-button:hover {
+            background-color: var(--primary-color); /* Reset to original color */
+          }
+          
         }
 
         /* Mobile specific adjustments */
@@ -372,7 +387,7 @@
           }
 
           .footer-section {
-            padding: 15px;
+            padding: 15px 15px 50px 15px;
           }
 
           .line-break::before {
@@ -394,6 +409,14 @@
 
           .social-col {
             text-align: left;
+          }
+
+          .contact-button:hover {
+            background-color: var(--primary-color); /* Reset to original color */
+          }
+
+          .theme-button:hover {
+            background-color: var(--primary-color); /* Reset to original color */
           }
 
           }
@@ -432,49 +455,49 @@
             <span class="year-col">2025</span>
             <span class="client-col">BEAM</span>
             <span class="project-col">beamstudio.earth</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//readymag.website/u2223705888/5797828/')">
             <span class="year-col">2025</span>
             <span class="client-col">Luke Henderson</span>
             <span class="project-col">lukehenderson.net</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//www.ryanlettieri.com')">
             <span class="year-col">2025</span>
             <span class="client-col">Ryan Lettieri</span>
             <span class="project-col">ryanlettieri.com</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//www.tidelands.earth')">
             <span class="year-col">2025</span>
             <span class="client-col">BEAM</span>
             <span class="project-col">tidelands.earth</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//www.ojahara.world')">
             <span class="year-col">2025</span>
             <span class="client-col">Ojahara</span>
             <span class="project-col">ojahara.world</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//www.shopgeneralist.com')">
             <span class="year-col">2024</span>
             <span class="client-col">Generalist Studio</span>
             <span class="project-col">shopgeneralist.com</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//generalist.online')">
             <span class="year-col">2024</span>
             <span class="client-col">Generalist Studio</span>
             <span class="project-col">generaliststudio.com</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//readymag.website/u2223705888/5433747/')">
             <span class="year-col">2024</span>
             <span class="client-col">Generalist Studio</span>
             <span class="project-col">Nads Doc 1.0</span>
-            <span class="link-col">↗</span>
+            <span class="link-col"></span>
           </button>
         </div>
       </div>
