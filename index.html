@@ -232,6 +232,11 @@
           font-size: 0.8rem;
         }
 
+        .line-break::before {
+          content: "\A";
+          white-space: pre;
+        }
+
         /* Tablet specific adjustments */
         @media (min-width: 769px) and (max-width: 1024px) {
           
@@ -279,7 +284,7 @@
 
           .year-col {
             grid-column: 1;
-            opacity: 0.5;
+            color: var(--tertiary-color)
           }
 
           .client-col {
@@ -315,7 +320,10 @@
           }
 
           .main-content {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 30px;
             padding: 15px;
           }
 
@@ -339,14 +347,14 @@
           }
 
           .link-col {
-          opacity: 1;
-          grid-column: 2;
-          justify-self: end;
+            opacity: 1;
+            grid-column: 2;
+            justify-self: end;
           }
 
           .year-col {
             grid-column: 1;
-            opacity: 0.5;
+            color: var(--tertiary-color)
           }
 
           .client-col {
@@ -358,11 +366,34 @@
           }
 
           .image {
-            display: none;
+            display: block;
+            height: 300px;
+            width: 100%;
           }
 
           .footer-section {
             padding: 15px;
+          }
+
+          .line-break::before {
+            content: " ";
+          }
+
+          .footer-container {
+            flex-direction: column;
+            gap: 2px;
+          }
+
+          .copyright-col {
+            color: var(--tertiary-color)
+          }
+
+          .clock-col {
+            text-align: left;
+          }
+
+          .social-col {
+            text-align: left;
           }
 
           }
@@ -447,16 +478,15 @@
           </button>
         </div>
       </div>
-      <div class="image">
-      </div>
+      <div class="image"></div>
     </div>
   </div>
 
   <div class="footer-section">
     <div class="footer-container">
-      <span class="copyright-col"><span class="copyright">©</span>2025, Generalist LLC. <br>All Rights Reserved.</span>
-      <span class="clock-col">Providence, RI <br>00:00:00</span>
-      <span class="social-col"><a href="#">Instagram,</a><br> <a href="#">Are.na</a></span>
+    <span class="copyright-col"><span class="copyright">©</span>2025, Generalist LLC.<span class="line-break"> </span>All Rights Reserved.</span>
+    <span class="clock-col">Providence, RI<span class="line-break"> </span>00:00:00</span>
+    <span class="social-col"><a href="#">Instagram,</a><span class="line-break"> </span><a href="#">Are.na</a></span>
     </div>
   </div>
 
@@ -523,10 +553,14 @@ function updateClock() {
     timeZoneName: 'short'
   }).split(', ')[1];
   
+  // Check if mobile
+  const isMobile = window.innerWidth <= 768;
+  const separator = isMobile ? ' ' : '<br>';
+  
   // Update the clock element
   const clockElement = document.querySelector('.clock-col');
   if (clockElement) {
-    clockElement.innerHTML = `Providence, RI <br>${easternTime} ${timeZoneAbbr}`;
+    clockElement.innerHTML = `Providence, RI${separator}${easternTime} ${timeZoneAbbr}`;
   }
 }
 
