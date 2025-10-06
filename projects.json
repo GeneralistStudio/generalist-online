@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "symbiotica",
+    "title": "Symbiotica",
+    "role": "Brand Designer",
+    "credits": ["Zoe Lee", "Annie Chen"],
+    "description": "SYMBIOTICA is the podcast and newsletter of BEAM, a creative studio for climate innovation. I built its identity and web system to stand on its own while still belonging to the BEAM-verse—balancing high-tech futurism with archival memory to create an immersive, cinematic space for exploring the future of climate design.<br><br>This project was developed in collaboration with BEAM over the course of 6 months. The world of Symbiotica is influenced by the texture of classical scientific photography and analog music mechanisms, overlaid with our distinctly digital interfaces.<br><br>In addition to my direction and branding work, I designed and implemented Symbiotica's bespoke website, which takes inspiration from analog hi-fi (music) technology with the help of AI tools like Claude and ChatGPT to bring my work to life.",
+    "images": [
+      "https://res.cloudinary.com/dmkewzn6j/video/upload/f_auto/v1759767666/symbiotica-3_a9g8it.mp4",
+      "https://res.cloudinary.com/dmkewzn6j/image/upload/f_auto/v1759767666/symbiotica-4_v4mpfb.png",
+      "https://res.cloudinary.com/dmkewzn6j/video/upload/f_auto/v1759767668/symbiotica-10_vizm1c.mp4",
+      "https://res.cloudinary.com/dmkewzn6j/image/upload/v1759767671/Symbiotica-Documentation_Artboard_18_copy_6_e9kxhm.png",
+      "https://res.cloudinary.com/dmkewzn6j/image/upload/v1759767673/symbiotica-row8_pupnzh.webp",
+      "https://res.cloudinary.com/dmkewzn6j/image/upload/v1759767671/Symbiotica-Documentation_Artboard_18_s1oc2v.png",
+      "https://res.cloudinary.com/dmkewzn6j/image/upload/v1759767667/symbiotica-5_owmsw4.png",
+      "https://res.cloudinary.com/dmkewzn6j/video/upload/v1759767669/symbiotica-12_bgcxsc.mp4"
+
+    ]
+  },
+  {
+    "slug": "swarm",
+    "title": "Swarm",
+    "role": "Brand Designer",
+    "credits": ["Zoe Lee"],
+    "description": "Description of your second project goes here...",
+    "images": [
+      "images/project2-1.jpg",
+      "images/project2-2.jpg",
+      "images/project2-3.jpg",
+      "images/project2-4.jpg"
+    ]
+  },
+  {
+    "slug": "arravalis",
+    "title": "Arravalis",
+    "role": "Brand Designer",
+    "credits": ["Aashita"],
+    "description": "Description of your third project goes here...",
+    "images": [
+      "images/project2-1.jpg",
+      "images/project2-2.jpg",
+      "images/project2-3.jpg",
+      "images/project2-4.jpg"
+    ]
+  }
+]

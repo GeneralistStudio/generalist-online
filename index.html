@@ -3,436 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generalist-Online</title>
+  <title>Ryan Lettieri</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/wsx3dap.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
-<style>
-        :root {
-            --bg-color: #FFFFFF;
-            --primary-color: #361D0E;
-            --secondary-color:#F5F4F3;
-            --tertiary-color:#a8a8a8;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #140a03;
-            --primary-color: #ffffff;
-            --secondary-color: #2c231d;
-            --tertiary-color:#BDBDBD;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.15s ease;
-
-        }
-
-        body {
-          display: grid;
-          grid-template-rows: auto 1fr auto;
-          background-color: var(--bg-color);
-          color: var(--primary-color);
-          font-family: "polymath", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-          line-height: 1.2;
-          font-size: 1rem;
-          overflow: none;
-          min-height: 100vh;
-        }
-
-        .nav-section {
-          padding: 25px 50px;
-        }
-
-        .nav-container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .logo {
-          padding: 10px 15px;
-          background-color: var(--secondary-color);
-          border-radius: 3px;
-          color: var(--primary-color);
-
-        }
-
-        .contact-button {
-          padding: 10px 15px;
-          background-color: var(--primary-color);
-          border-radius: 3px;
-          color: var(--bg-color);
-          cursor: pointer;
-
-        }
-
-        .contact-button:hover {
-          background-color: var(--tertiary-color);
-        }
-
-        .about-section {
-          padding: 50px 50px 100px 50px;
-        }
-
-        .about-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 15px;
-        }
-
-        .about-text {
-          grid-column: 1 / 3;
-          font-family: "polymath-text", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-          line-height: 1.2;
-          font-size: 1rem;
-        }
-
-        .work-section {
-          display: block;
-          grid-column: 1/3;
-          min-height: 0;
-        }
-
-        .work-container {
-          display: flex;
-          flex-direction: column;
-          overflow-y: auto;
-          max-height: 35vh;
-          scrollbar-width: none;
-        }
-
-        .work-container::-webkit-scrollbar {
-          display: none; /* Chrome, Safari, Opera */
-        }
-
-        .list-item {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          gap: 15px;
-          justify-items: start;
-          padding: 10px 15px;
-          border: none;
-          background: none;
-          border-radius: 3px;
-          color: var(--primary-color);
-          font-family: "polymath-text", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-          line-height: 1.2;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: none;
-        }
-
-        .link-col {
-          opacity: 0;
-          justify-self: end;
-        }
-
-        .list-item:hover {
-          background-color: var(--secondary-color);
-        }
-
-        .list-item:hover .link-col{
-          opacity: 1;
-        }
-
-        .work-list-header {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          gap: 15px;
-          justify-items: start;
-          padding: 15px 15px;
-          color: var(--tertiary-color)
-        }
-
-        .footer-section {
-          padding: 25px 50px;
-        }
-
-        .footer-container {
-          display: flex;
-          justify-content: space-between;
-          gap: 15px;
-        }
-
-        .theme-button {
-          border: none;
-          padding: 0.5rem;
-          border-radius: 100%;
-          background-color: var(--primary-color);
-          cursor: pointer;
-          transition: all 0.15s ease;
-        }
-
-        .theme-button:hover {
-          background-color: var(--tertiary-color);
-        }
-
-        .button-container {
-          display: flex;
-          gap: 25px;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .main-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          padding: 50px;
-          gap: 15px;
-        }
-
-        .image {
-          grid-column: 3;
-          justify-self: stretch;
-          border-radius: 3px;
-          background-image: url('./images/01.JPG');
-          background-size: cover;
-          background-position: center;
-        }
-
-        .copyright-col {
-          justify-self: start;
-        }
-
-        .clock-col {
-          justify-self: center;
-          text-align: center;
-        }
-
-        .social-col {
-          justify-self: right;
-          text-align: right;
-        }
-
-        a {
-          text-decoration: none;
-          color: var(--primary-color)
-        }
-
-        a:hover {
-          color: var(--tertiary-color)
-        }
-
-        sup {
-          font-size: 0.6rem;
-          font-weight: 700;
-        }
-
-        .copyright {
-          font-size: 0.8rem;
-        }
-
-        .line-break::before {
-          content: "\A";
-          white-space: pre;
-        }
-
-        .link-col::after {
-          content: "↗";
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-          font-style: normal;
-        }
-
-        /* Tablet specific adjustments */
-        @media (min-width: 769px) and (max-width: 1180px) {
-          
-          .about-section{
-            padding: 15px;
-          }
-
-          .about-container{
-            grid-template-columns: 1fr;
-          }
-
-          .nav-section {
-            padding: 15px;
-          }
-
-          .main-content {
-            grid-template-columns: 1fr;
-            padding: 15px;
-          }
-
-          .work-list-header {
-            display: none;
-          }
-
-          .work-section {
-            max-height: none;
-          }
-
-          .work-container {
-            gap: 5px;
-            max-height: none;
-          }
-
-          .list-item {
-            background-color: var(--secondary-color);
-            grid-template-columns: 1fr 1fr;
-            gap: 0px;
-          }
-
-          .link-col {
-          opacity: 1;
-          grid-column: 2;
-          justify-self: end;
-          }
-
-          .year-col {
-            grid-column: 1;
-            color: var(--tertiary-color)
-          }
-
-          .client-col {
-            grid-column: 1;
-          }
-
-          .project-col {
-            grid-column: 1;
-          }
-
-          .image {
-            display: none;
-          }
-
-          .footer-section {
-            padding: 15px;
-          }
-
-          .contact-button:hover {
-            background-color: var(--primary-color); /* Reset to original color */
-          }
-
-          .theme-button:hover {
-            background-color: var(--primary-color); /* Reset to original color */
-          }
-
-        }
-
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-   
-          .about-section{
-            padding: 15px;
-          }
-
-          .about-container{
-            grid-template-columns: 1fr;
-          }
-
-          .nav-section {
-            padding: 15px;
-          }
-
-          .main-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 30px;
-            padding: 15px;
-          }
-
-          .work-list-header {
-            display: none;
-          }
-
-          .work-section {
-            max-height: none;
-          }
-
-          .work-container {
-            gap: 5px;
-            max-height: none;
-          }
-
-          .list-item {
-            background-color: var(--secondary-color);
-            grid-template-columns: 1fr 1fr;
-            gap: 0px;
-          }
-
-          .link-col {
-            opacity: 1;
-            grid-column: 2;
-            justify-self: end;
-          }
-
-          .year-col {
-            grid-column: 1;
-            color: var(--tertiary-color)
-          }
-
-          .client-col {
-            grid-column: 1;
-          }
-
-          .project-col {
-            grid-column: 1;
-          }
-
-          .image {
-            display: block;
-            height: 300px;
-            width: 100%;
-          }
-
-          .footer-section {
-            padding: 15px 15px 50px 15px;
-          }
-
-          .line-break::before {
-            content: " ";
-          }
-
-          .footer-container {
-            flex-direction: column;
-            gap: 2px;
-          }
-
-          .copyright-col {
-            color: var(--tertiary-color)
-          }
-
-          .clock-col {
-            text-align: left;
-          }
-
-          .social-col {
-            text-align: left;
-          }
-
-          .contact-button:hover {
-            background-color: var(--primary-color); /* Reset to original color */
-          }
-
-          .theme-button:hover {
-            background-color: var(--primary-color); /* Reset to original color */
-          }
-
-          }
-
-
-</style>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
 </head>
 
 <body>
   <div class="nav-section">
     <div class="nav-container">
-      <buttton class="logo">Generalist-Online<sup>©</sup></buttton>
+      <buttton class="logo">Ryan Lettieri</buttton>
         <div class="button-container">
           <button id="theme-toggle" class="theme-button"></button>
-          <buttton class="contact-button" onclick="window.location.href = 'mailto:hello@generalist.online'">Contact</buttton>
+          <buttton class="contact-button" onclick="window.location.href = 'mailto:hello@ryanlettieri.com'">Contact</buttton>
         </div>
     </div>
   </div>
@@ -440,7 +29,7 @@
   <div class="content-wrapper">
     <div class="about-section">
       <div class="about-container">
-        <h1 class="about-text">Generalist Online is a Providence-based brand & development studio dedicated to crafting exceptional digital experiences. We collaborate with select clients to create identity-driven web experiences informed by contemporary culture, craft, and imagination.
+        <h1 class="about-text">Ryan is a freelance designer dedicated to crafting identity-driven digital experiences. With <a href="//www.beamstudio.earth">BEAM</a>, he collaborates with innovators across the arts, culture, & technology spaces to create future-facing web & brand projects. <a href="about.html">Read more.</a>
         </h1>
       </div>
     </div>
@@ -458,16 +47,28 @@
             <span class="project-col">beamstudio.earth</span>
             <span class="link-col"></span>
           </button>
+          <button class="list-item" onclick="window.location.href=('work.html?project=arravalis')">
+            <span class="year-col">2025</span>
+            <span class="client-col">Arravalis</span>
+            <span class="project-col">Brand Identity</span>
+            <span class="link-col"></span>
+          </button>
+          <button class="list-item" onclick="window.location.href=('work.html?project=swarm')">
+            <span class="year-col">2025</span>
+            <span class="client-col">Swarm Outdoors Inc.</span>
+            <span class="project-col">Brand Identity</span>
+            <span class="link-col"></span>
+          </button>
           <button class="list-item" onclick="window.open('//www.lukehenderson.art')">
             <span class="year-col">2025</span>
             <span class="client-col">Luke Henderson</span>
             <span class="project-col">lukehenderson.art</span>
             <span class="link-col"></span>
           </button>
-          <button class="list-item" onclick="window.open('//www.ryanlettieri.com')">
+          <button class="list-item" onclick="window.location.href=('work.html?project=symbiotica')">
             <span class="year-col">2025</span>
-            <span class="client-col">Ryan Lettieri</span>
-            <span class="project-col">ryanlettieri.com</span>
+            <span class="client-col">BEAM</span>
+            <span class="project-col">Symbiotica</span>
             <span class="link-col"></span>
           </button>
           <button class="list-item" onclick="window.open('//www.tidelands.earth')">
@@ -482,22 +83,10 @@
             <span class="project-col">ojahara.world</span>
             <span class="link-col"></span>
           </button>
-          <button class="list-item" onclick="window.open('//www.shopgeneralist.com')">
-            <span class="year-col">2024</span>
-            <span class="client-col">Generalist Studio</span>
-            <span class="project-col">shopgeneralist.com</span>
-            <span class="link-col"></span>
-          </button>
           <button class="list-item" onclick="window.open('//www.generaliststudio.com')">
             <span class="year-col">2024</span>
             <span class="client-col">Generalist Studio</span>
-            <span class="project-col">generaliststudio.com</span>
-            <span class="link-col"></span>
-          </button>
-          <button class="list-item" onclick="window.open('//readymag.website/u2223705888/5433747/')">
-            <span class="year-col">2024</span>
-            <span class="client-col">Generalist Studio</span>
-            <span class="project-col">Nads Doc 1.0</span>
+            <span class="project-col">Nads Documentary</span>
             <span class="link-col"></span>
           </button>
         </div>
@@ -508,102 +97,12 @@
 
   <div class="footer-section">
     <div class="footer-container">
-    <span class="copyright-col"><span class="copyright">©</span>2025, Generalist LLC.<span class="line-break"> </span>All Rights Reserved.</span>
+    <span class="copyright-col"><span class="copyright">©</span>2025 Ryan Lettieri<span class="line-break"> </span>Last updated: 10.1.25</span>
     <span class="clock-col">Providence, RI<span class="line-break"> </span>00:00:00</span>
-    <span class="social-col"><a href="https://www.instagram.com/generalist.online/" target="_blank">Instagram,</a><span class="line-break"> </span><a href="https://www.are.na/generalist-online" target="_blank">Are.na</a></span>
+    <span class="social-col"><a href="https://www.instagram.com/rettieri/" target="_blank">Instagram,</a><span class="line-break"> </span><a href="https://www.are.na/ryan-lettieri" target="_blank">Are.na</a></span>
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
-<script>
-
-
-//DARK MODE BUTTON
-
-
-  // Function to toggle theme
-function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
-  // Apply theme to document
-  document.documentElement.setAttribute('data-theme', newTheme);
-  
-  // Save preference
-  localStorage.setItem('theme', newTheme);
-}
-
-// Initialize theme on page load
-function initTheme() {
-  // Check for saved preference, or default to light
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-}
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', initTheme);
-
-// Add this after your theme functions
-document.addEventListener('DOMContentLoaded', function() {
-  initTheme();
-  
-  // Assuming you add a button with id="theme-toggle"
-  const themeButton = document.getElementById('theme-toggle');
-  themeButton.addEventListener('click', toggleTheme);
-});
-
-
-
-//CLOCK FUNCTIONALITY
-
-
-
-// Function to update the clock with Eastern Time
-function updateClock() {
-  const now = new Date();
-  
-  // Format time for Eastern timezone (handles EST/EDT automatically)
-  const easternTime = now.toLocaleTimeString('en-US', {
-    timeZone: 'America/New_York',
-    hour12: false, // 24-hour format
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  
-  // Get timezone abbreviation (EST or EDT)
-  const timeZoneAbbr = now.toLocaleDateString('en-US', {
-    timeZone: 'America/New_York',
-    timeZoneName: 'short'
-  }).split(', ')[1];
-  
-  // Check if mobile
-  const isMobile = window.innerWidth <= 768;
-  const separator = isMobile ? ' ' : '<br>';
-  
-  // Update the clock element
-  const clockElement = document.querySelector('.clock-col');
-  if (clockElement) {
-    clockElement.innerHTML = `Providence, RI${separator}${easternTime} ${timeZoneAbbr}`;
-  }
-}
-
-// Start the clock immediately and update every second
-function startClock() {
-  updateClock(); // Update immediately
-  setInterval(updateClock, 1000); // Update every second
-}
-
-// Add to your existing DOMContentLoaded event listener
-document.addEventListener('DOMContentLoaded', function() {
-  initTheme();
-  
-  const themeButton = document.getElementById('theme-toggle');
-  themeButton.addEventListener('click', toggleTheme);
-  
-  // Start the live clock
-  startClock();
-});
-
-</script>
 </html>

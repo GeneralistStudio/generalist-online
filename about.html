@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryan Lettieri</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/wsx3dap.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+
+<body>
+  <div class="nav-section">
+    <div class="nav-container">
+      <buttton class="logo" onclick="window.location.href='index.html'">Ryan Lettieri</buttton>
+        <div class="button-container">
+          <button id="theme-toggle" class="theme-button"></button>
+          <buttton class="contact-button" onclick="window.location.href = 'mailto:hello@ryanlettieri.com'">Contact</buttton>
+        </div>
+    </div>
+  </div>
+
+<div class="about-page-section">
+  <div class="about-page-container">
+    <div class="about-image"></div>
+    <div class="about-wrapper">
+      <h1 class="about-body">Hi, I'm Ryan. I'm a designer and technologist based in Providence, RI currently focused on technology-driven tools, systems, and stories as a Lead Designer at <a href="//www.beamstudio.earth">BEAM</a>.
+      <br><br>  
+      I translate emerging technologies, cultural visionaries, and strategic insight into immersive visual identities and web experiences, approaching each project like a film—shaping complex ideas into clear, emotionally engaging worlds. 
+      <br><br>
+      Project inquiries: <a href="mailto:hello@ryanlettieri.com">hello@ryanlettieri.com</a>
+      </h1>
+      <button class="secondary-button about-button" onclick="window.location.href = 'https://www.ryanlettieri.com/cv.html'">Full CV</button>
+    </div>
+    <div class="about-footer">
+      <div class="about-footer-header">
+        <span class="about-footer-h1">Select Clients</span>
+        <span class="about-footer-h1">Services</span>
+      </div>
+      <div class="about-footer-content">
+        <div class="about-footer-col"><span>BEAM</span><span>Swarm Outdoors, Inc.</span><span>Arravalis</span><span>Nova Design</span><span>ThinkFun</span><span>Orka Energy Drink Co.</span></div>
+        <div class="about-footer-col"><span>Creative Strategy</span><span>Visual Identity</span><span>Design Systems</span><span>UI Design</span><span>Frontend</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="footer-section">
+    <div class="footer-container">
+    <span class="copyright-col"><span class="copyright">©</span>2025 Ryan Lettieri<span class="line-break"> </span>Last updated: 10.1.25</span>
+    <span class="clock-col">Providence, RI<span class="line-break"> </span>00:00:00</span>
+    <span class="social-col"><a href="https://www.instagram.com/rettieri/" target="_blank">Instagram,</a><span class="line-break"> </span><a href="https://www.are.na/ryan-lettieri" target="_blank">Are.na</a></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryan Lettieri</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/wsx3dap.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+
+<body>
+  <div class="nav-section">
+    <div class="nav-container">
+      <buttton class="logo" onclick="window.location.href='index.html'">Ryan Lettieri</buttton>
+        <div class="button-container">
+          <button id="theme-toggle" class="theme-button"></button>
+          <buttton class="contact-button" onclick="window.location.href = 'mailto:hello@ryanlettieri.com'">Contact</buttton>
+        </div>
+    </div>
+  </div>
+
+  <div class="main-work-section">
+    <!-- This will be filled by JavaScript -->
+    <div class="work-info-container" id="work-info"></div>
+    <div class="work-image-container" id="work-images"></div>
+    <div class="next-button-container">
+      <button class="secondary-button" onclick="nextProject()">Next</button>
+    </div>
+  </div>
+
+  <div class="footer-section">
+    <div class="footer-container">
+    <span class="copyright-col"><span class="copyright">©</span>2025 Ryan Lettieri<span class="line-break"> </span>Last updated: 10.1.25</span>
+    <span class="clock-col">Providence, RI<span class="line-break"> </span>00:00:00</span>
+    <span class="social-col"><a href="https://www.instagram.com/rettieri/" target="_blank">Instagram,</a><span class="line-break"> </span><a href="https://www.are.na/ryan-lettieri" target="_blank">Are.na</a></span>
+    </div>
+  </div>
+
+  <script>
+    let projects = [];
+    let currentProjectIndex = 0;
+  
+    // Load projects from JSON
+    fetch('projects.json')
+      .then(response => response.json())
+      .then(data => {
+        projects = data;
+        
+        // Check if there's a project slug in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectSlug = urlParams.get('project');
+        
+        if (projectSlug) {
+          const index = projects.findIndex(p => p.slug === projectSlug);
+          if (index !== -1) {
+            currentProjectIndex = index;
+          }
+        }
+        
+        displayProject(currentProjectIndex);
+      });
+  
+    function displayProject(index) {
+      const project = projects[index];
+      
+      // Update URL without reloading page
+      const newUrl = `${window.location.pathname}?project=${project.slug}`;
+      window.history.pushState({}, '', newUrl);
+      
+      // Build credits HTML
+      const creditsHTML = project.credits.map(credit => 
+        `<span>${credit}</span>`
+      ).join('');
+      
+      // Update work info
+      document.getElementById('work-info').innerHTML = `
+        <div class="work-title-col">
+          <div class="work-title-row"><span class="work-page-header">Title</span><span>${project.title}</span></div>
+          <div class="work-title-row"><span class="work-page-header">Role</span><span>${project.role}</span></div>
+          <div class="work-title-row"><span class="work-page-header">Credits</span>${creditsHTML}</div>
+        </div>
+        <div class="work-info-col">
+          <span>${project.description}</span>
+        </div>
+      `;
+      
+      // Build images/videos HTML
+      const mediaHTML = project.images.map(mediaUrl => {
+        // Check if it's a video by file extension
+        const isVideo = mediaUrl.match(/\.(mp4|webm|ogg|mov)$/i);
+        
+        if (isVideo) {
+          return `<div class="work-image"><video autoplay loop muted playsinline><source src="${mediaUrl}" type="video/mp4"></video></div>`;
+        } else {
+          return `<div class="work-image"><img src="${mediaUrl}" alt="${project.title}"></div>`;
+        }
+      }).join('');
+      
+      document.getElementById('work-images').innerHTML = mediaHTML;
+    }
+  
+    function nextProject() {
+      currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+      displayProject(currentProjectIndex);
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
