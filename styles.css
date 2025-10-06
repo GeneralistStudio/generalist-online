@@ -519,6 +519,7 @@ justify-self: end;
   display: flex;
   gap: 50px;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 
 .about-page-section {
