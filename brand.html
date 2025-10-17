@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Spectrum - Ryan Lettieri</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/wsx3dap.css">
+<script>
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+</script>
+</head>
+<body>
+<div class="nav-section">
+  <div class="nav-container">
+    <div class="logo">Ryan Lettieri</div>
+    <div class="button-container">
+      <button id="theme-toggle" class="theme-button"></button>
+      <div class="contact-button" onclick="window.location.href='mailto:hello@ryanlettieri.com'">Contact</div>
+    </div>
+  </div>
+</div>
+
+<div class="spectrum-container">
+  <h1 class="spectrum-title">Brand Spectrum</h1>
+  <div class="sliders-wrapper">
+    <div class="sliders">
+      <div class="spectrum-left">Traditional</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Modern</div>
+      
+      <div class="spectrum-left">Serious</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Playful</div>
+      
+      <div class="spectrum-left">Exclusive</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Inclusive</div>
+      
+      <div class="spectrum-left">Simple</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Complex</div>
+      
+      <div class="spectrum-left">Luxury</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Affordable</div>
+      
+      <div class="spectrum-left">Formal</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Informal</div>
+      
+      <div class="spectrum-left">Masculine</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Feminine</div>
+      
+      <div class="spectrum-left">Quiet</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Loud</div>
+      
+      <div class="spectrum-left">Elegant</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Rugged</div>
+      
+      <div class="spectrum-left">Mature</div>
+      <input type="range" min="0" max="100" value="50" class="spectrum-range">
+      <div class="spectrum-right">Youthful</div>
+    </div>
+  </div>
+  
+  <div class="spectrum-buttons">
+    <button class="secondary-button" onclick="document.querySelectorAll('.spectrum-range').forEach(s => s.value = 50)">Reset</button>
+    <button class="secondary-button" onclick="getShareableURL()">Copy Values</button>
+  </div>
+</div>
+
+<div class="footer-section">
+  <div class="footer-container">
+    <span class="copyright-col"><span class="copyright">©</span>2025 Ryan Lettieri<span class="line-break"> </span>Last updated: 10.6.25</span>
+    <span class="clock-col">Providence, RI<span class="line-break"> </span>00:00:00</span>
+    <span class="social-col"><a href="https://www.instagram.com/rettieri/" target="_blank">Instagram,</a><span class="line-break"> </span><a href="https://www.are.na/ryan-lettieri" target="_blank">Are.na</a></span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// Snap slider behavior
+    document.querySelectorAll('.spectrum-range').forEach(slider => {
+      slider.addEventListener('input', function(e) {
+        const val = parseFloat(e.target.value);
+        const snapPoints = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
+        const snapThreshold = 5; // How close to snap point before snapping
+        
+        for (let point of snapPoints) {
+          if (Math.abs(val - point) < snapThreshold) {
+            e.target.value = point;
+            break;
+          }
+        }
+      });
+    });
+
+function getShareableURL() {
+  const sliders = document.querySelectorAll('.spectrum-range');
+  const values = Array.from(sliders).map(s => s.value).join(',');
+  const url = new URL(window.location);
+  url.searchParams.set('values', values);
+  
+  navigator.clipboard.writeText(url.toString()).then(() => {
+    alert('Shareable URL copied to clipboard!');
+  });
+}
+
+// Load values from URL if present
+window.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const values = params.get('values');
+  
+  if (values) {
+    const valueArray = values.split(',');
+    const sliders = document.querySelectorAll('.spectrum-range');
+    sliders.forEach((slider, index) => {
+      if (valueArray[index]) {
+        slider.value = valueArray[index];
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
