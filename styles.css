@@ -233,12 +233,15 @@ text-align: right;
 }
 
 a {
-text-decoration: none;
+text-decoration: underline;
+text-decoration-thickness: 1.5px;
+text-underline-offset: 2px;
 color: var(--primary-color)
 }
 
 a:hover {
-color: var(--tertiary-color)
+color: var(--tertiary-color);
+text-decoration: none;
 }
 
 sup {
