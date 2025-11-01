@@ -652,7 +652,7 @@ justify-self: end;
 }
 
 .about-image {
-  height: 600px;
+  height: auto;
   max-width: 100%;
 }
 
