@@ -280,15 +280,12 @@ font-style: normal;
 }
 
 .about-image {
-  background-image: url('./images/05.JPG');
+  background-image: url('./images/04.JPG');
   justify-self: stretch;
+  aspect-ratio: 2 / 3;
   border-radius: 3px;
   background-size: cover;
   background-position: center;
-}
-
-.about-image:hover {
-  background-image: url('./images/04.JPG');
 }
 
 .about-body {
