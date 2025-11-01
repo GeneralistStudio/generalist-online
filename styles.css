@@ -653,6 +653,7 @@ justify-self: end;
 
 .about-image {
   height: 600px;
+  max-width: 100%;
 }
 
 .about-wrapper {
