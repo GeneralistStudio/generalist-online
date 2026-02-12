@@ -61,10 +61,49 @@ document.addEventListener('DOMContentLoaded', function() {
   // Start the live clock
   startClock();
   
-  // Random background image
-  const imageElement = document.querySelector('.image');
-  if (imageElement) {
-    imageElement.style.backgroundImage = `url(./images/0${Math.floor(Math.random()*3)+1}.JPG)`;
+// Random background image on load
+const imageElement = document.querySelector('.image');
+if (imageElement) {
+  const defaultImage = `url(./images/0${Math.floor(Math.random()*3)+1}.JPG)`;
+  imageElement.style.backgroundImage = defaultImage;
+  
+  // Only add hover functionality on desktop
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    const listItems = document.querySelectorAll('.list-item');
+    
+    listItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const imageUrl = item.getAttribute('data-image');
+        
+        // Fade out
+        imageElement.style.opacity = '0';
+        
+        // Change image/color and fade in
+        setTimeout(() => {
+          if (imageUrl) {
+            imageElement.style.backgroundImage = `url(${imageUrl})`;
+            imageElement.style.backgroundColor = '';
+          } else {
+            imageElement.style.backgroundImage = 'none';
+            imageElement.style.backgroundColor = '#f0f0f0'; // Your color
+          }
+          imageElement.style.opacity = '1';
+        }, 0);
+      });
+      
+      // Return to default image when mouse leaves
+      item.addEventListener('mouseleave', () => {
+        imageElement.style.opacity = '0';
+        
+        setTimeout(() => {
+          imageElement.style.backgroundImage = defaultImage;
+          imageElement.style.backgroundColor = '';
+          imageElement.style.opacity = '1';
+        }, 0);
+      });
+    });
   }
+}
+
 });
   
