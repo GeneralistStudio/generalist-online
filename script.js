@@ -88,7 +88,7 @@ if (imageElement) {
             imageElement.style.backgroundColor = '#f0f0f0'; // Your color
           }
           imageElement.style.opacity = '1';
-        }, 0);
+        }, 200);
       });
       
       // Return to default image when mouse leaves
@@ -99,7 +99,7 @@ if (imageElement) {
           imageElement.style.backgroundImage = defaultImage;
           imageElement.style.backgroundColor = '';
           imageElement.style.opacity = '1';
-        }, 0);
+        }, 200);
       });
     });
   }
