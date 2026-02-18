@@ -163,6 +163,10 @@ cursor: pointer;
 transition: none;
 }
 
+.list-item.unclickable {
+  cursor: not-allowed;
+}
+
 .filler-item {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
